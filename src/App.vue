@@ -4,6 +4,9 @@
       <pp-header></pp-header>
     </div>
     <div class="container">
+      <pp-admin></pp-admin>
+    </div>
+    <div class="container">
       <pp-menu></pp-menu>
     </div>
     <div class="container">
@@ -18,8 +21,9 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Home from './components//Home.vue';
-import Menu from './components//Menu.vue';
+import Home from './components/Home.vue';
+import Menu from './components/Menu.vue';
+import Admin from './components/Admin.vue';
 
 export default {
   name: 'App',
@@ -27,7 +31,8 @@ export default {
     ppHeader: Header,
     ppFooter: Footer,
     ppHome: Home,
-    ppMenu: Menu
+    ppMenu: Menu,
+    ppAdmin: Admin 
   }
 }
 </script>
