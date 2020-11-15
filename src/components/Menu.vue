@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <!-- <tbody v-bind:for="item in getMenuItems"> -->
-        <tbody v-for="item in getMenuItems" :key="item.name">
+        <tbody v-for="item in menuItems" :key="item.name">
           <tr>
             <td><strong>{{ item.name }}</strong></td>
           </tr>
@@ -83,8 +83,9 @@ export default {
     }
   },
   computed: {
-    getMenuItems() {
-      return this.$store.state.menuItems 
+    menuItems() {
+      // return this.$store.state.menuItems 
+      return this.$store.getters.getMenuItems
     }
   },
   methods: {

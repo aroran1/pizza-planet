@@ -19,7 +19,7 @@
             <th>Remove Item</th>
           </tr>
         </thead>
-        <tbody v-for="item in getMenuItems" :key="item.name">
+        <tbody v-for="item in menuItems" :key="item.name">
           <tr>
             <td>{{ item.name }}</td>
             <td><button class="btn btn-sm btn-outline-danger">x</button></td>
@@ -30,7 +30,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h2>Current Orders</h2>
+      <h2>Current Orders: {{ numberOfOrders }}</h2>
       <table class="table table-sm">
         <thead class="thead-default thead-light">
           <tr>
@@ -80,8 +80,12 @@ export default {
     ppLogin: Login
   },
   computed: {
-    getMenuItems() {
-      return this.$store.state.menuItems
+    menuItems() {
+      // return this.$store.state.menuItems 
+      return this.$store.getters.getMenuItems
+    },
+    numberOfOrders() {
+      return this.$store.getters.getNumberOfOrders
     }
   },
   beforeRouteLeave(to, from, next) {
