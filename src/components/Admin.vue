@@ -19,7 +19,7 @@
             <th>Remove Item</th>
           </tr>
         </thead>
-        <tbody v-for="item in menuItems" :key="item.name">
+        <tbody v-for="item in menuItems" :key="item.id">
           <tr>
             <td>{{ item.name }}</td>
             <td><button class="btn btn-sm btn-outline-danger">x</button></td>

@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <!-- <tbody v-bind:for="item in getMenuItems"> -->
-        <tbody v-for="item in menuItems" :key="item.name">
+        <tbody v-for="item in menuItems" :key="item.id">
           <tr>
             <td><strong>{{ item.name }}</strong></td>
           </tr>
@@ -64,11 +64,15 @@
             </tr>
           </tbody>
         </table>
-        <p>Order Total: </p>
-        <button class="btn btn-success btn-block" type="button">Place Order</button>
+        <p>Order Bill: </p>
+        <button
+          class="btn btn-success btn-block"
+          type="button"
+          @click="addNewOrder"
+        >Place Order</button>
       </div>
       <div v-else>
-        <p>{{ basketEmptyText }}</p>
+        <p>{{ basketText }} <br />{{ this.$store.state.orders }}</p>
       </div>
     </div>
   </div>
@@ -79,7 +83,7 @@ export default {
   data() {
     return {
       basket: [],
-      basketEmptyText: 'Your basket is empty!',
+      basketText: 'Your basket is empty!',
     }
   },
   computed: {
@@ -109,6 +113,11 @@ export default {
     },
     increaseQuantity(item) {
       item.quantity++;
+    },
+    addNewOrder() {
+      this.$store.commit('addOrder', this.basket);
+      this.basket = [];
+      this.basketText = "Thank you! Your order has been placed now. :)"
     }
   }
 }

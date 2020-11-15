@@ -8,6 +8,7 @@ export const store = new Vuex.Store({
   state: {
     menuItems: {
       1: {
+        id: 1,
         name: "Margherita",
         description: "A delicious tomato based pizza with mozzarella topping",
         options: [
@@ -22,7 +23,8 @@ export const store = new Vuex.Store({
         ]
       },
       2: {
-        'name': "Pepproni",
+        id: 2,
+        name: "Pepproni",
         description: "A delicious tomato based pizza with mozzarella and pepproni topping",
         options: [
           {
@@ -36,7 +38,8 @@ export const store = new Vuex.Store({
         ]
       },
       3: {
-        'name': "Chicken Supreme",
+        id: 3,
+        name: "Chicken Supreme",
         description: "A delicious tomato based pizza with mozzarella and pepproni topping",
         options: [
           {
@@ -50,7 +53,8 @@ export const store = new Vuex.Store({
         ]
       },
       4 : {
-        'name': "BBQ",
+        id: 4,
+        name: "BBQ",
         description: "A delicious tomato based pizza with mozzarella and pepproni topping",
         options: [
           {
@@ -65,5 +69,8 @@ export const store = new Vuex.Store({
   getters: {
     getMenuItems: state => state.menuItems,
     getNumberOfOrders: state => state.orders.length
+  },
+  mutations: {
+    addOrder: (state, orders) => state.orders.push(orders)
   }
 })
