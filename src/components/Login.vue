@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Login</h1>
+    <p>Logged in as {{ currentUser.email }}</p>
     <form>
       <div class="form-group row">
         <label>Email address</label> 
@@ -28,6 +29,16 @@
 
 <script>
 import Firebase from "firebase";
+import { store } from '../store/index.js';
+
+Firebase.auth().onAuthStateChanged(function(user){
+  if(user) {
+    store.dispatch('setUser', user);
+  } else {
+    store.dispatch('setUser', null);
+  }
+});
+
 export default {
   methods: {
     signIn() {
@@ -52,6 +63,11 @@ export default {
       }).catch(function(error){
         alert(error);
       });
+    }
+  },
+  computed: {
+    currentUser() {
+      return this.$store.getters.getCurrentUser
     }
   }
 }

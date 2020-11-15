@@ -64,13 +64,31 @@ export const store = new Vuex.Store({
         ]
       }
     },
-    orders: []
+    orders: [],
+    currentUser: null
   },
   getters: {
     getMenuItems: state => state.menuItems,
-    getNumberOfOrders: state => state.orders.length
+    getNumberOfOrders: state => state.orders.length,
+    getCurrentUser: state => state.currentUser
   },
   mutations: {
-    addOrder: (state, orders) => state.orders.push(orders)
+    addOrder: (state, orders) => state.orders.push(orders),
+    userStatus: (state, user) => {
+      if(user) {
+        state.currentUser = user
+      } else {
+        state.currentUser = null
+      }
+    }
+  },
+  actions: {
+    // setUser(context, user) {
+    //   context.commit('userStatus', user);
+    // }
+    // same as above, instead of calling commit from context, calling it directly
+    setUser({ commit }, user) {
+      commit('userStatus', user);
+    }
   }
 })
