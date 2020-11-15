@@ -20,13 +20,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  
-}
-</script>
-
-
 <style scoped>
 h5 {
   font-size: 1em;

@@ -14,28 +14,33 @@ Vue.use(Router);
 const routes = [
   {
     path: '/',
+    name: 'homeLink',
     component: Home
   },
   {
     path: '/menu',
+    name: 'menuLink',
     component: Menu
   },
   {
     path: '/admin',
+    name: 'adminLink',
     component: Admin
   },
   {
     path: '/about',
+    name: 'aboutLink',
     component: About,
     children: [
-      { path: '/contact', component: Contact },
-      { path: '/history', component: History },
-      { path: '/delivery', component: Delivery },
-      { path: '/ordering-guide', component: OrderingGuide }
+      { path: '/contact', name: 'contactLink', component: Contact },
+      { path: '/history', name: 'historyLink', component: History },
+      { path: '/delivery', name: 'deliveryLink', component: Delivery },
+      { path: '/ordering-guide', name: 'orderingGuideLink', component: OrderingGuide }
     ]
   },
   {
     path: '*',
+    name: 'pageNotFoundLink',
     redirect: '/'
   }
 ];
