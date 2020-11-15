@@ -86,8 +86,9 @@ export default {
   },
   // component guard
   beforeRouteEnter: (to, from, next) => {
-    alert('Hi' + this.name);
-    next();
+    next(vm => {
+      alert('Hi ' + vm.name);
+    });
   }
 }
 </script>
