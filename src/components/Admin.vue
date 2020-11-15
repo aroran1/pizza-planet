@@ -19,7 +19,7 @@
             <th>Remove Item</th>
           </tr>
         </thead>
-        <tbody v-for="item in menuItems" :key="item.id">
+        <tbody v-for="item in getMenuItems" :key="item.id">
           <tr>
             <td>{{ item.name }}</td>
             <td><button class="btn btn-sm btn-outline-danger">x</button></td>
@@ -30,7 +30,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h2>Current Orders: {{ numberOfOrders }}</h2>
+      <h2>Current Orders: {{ getNumberOfOrders }}</h2>
       <table class="table table-sm">
         <thead class="thead-default thead-light">
           <tr>
@@ -73,6 +73,7 @@
 <script>
 import NewPizza from "./NewPizza.vue";
 import Login from "./Login.vue";
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -80,13 +81,18 @@ export default {
     ppLogin: Login
   },
   computed: {
-    menuItems() {
-      // return this.$store.state.menuItems 
-      return this.$store.getters.getMenuItems
-    },
-    numberOfOrders() {
-      return this.$store.getters.getNumberOfOrders
-    }
+    ...mapGetters([
+      'getMenuItems',
+      'getNumberOfOrders'
+    ])
+    // using mapGetters helpers are better way of using getters
+    // menuItems() {
+    //   // return this.$store.state.menuItems 
+    //   // return this.$store.getters.getMenuItems // setting up getter is a better way
+    // },
+    // numberOfOrders() {
+    //   return this.$store.getters.getNumberOfOrders
+    // }
   },
   beforeRouteLeave(to, from, next) {
     if(confirm("Have you remembered to logout?") === true) {

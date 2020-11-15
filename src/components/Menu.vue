@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <!-- <tbody v-bind:for="item in getMenuItems"> -->
-        <tbody v-for="item in menuItems" :key="item.id">
+        <tbody v-for="item in getMenuItems" :key="item.id">
           <tr>
             <td><strong>{{ item.name }}</strong></td>
           </tr>
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -87,10 +88,13 @@ export default {
     }
   },
   computed: {
-    menuItems() {
-      // return this.$store.state.menuItems 
-      return this.$store.getters.getMenuItems
-    }
+    ...mapGetters([
+      'getMenuItems'
+    ])
+    // menuItems() {
+    //   // return this.$store.state.menuItems 
+    //   return this.$store.getters.getMenuItems
+    // }
   },
   methods: {
     addToBasket(item, option) {

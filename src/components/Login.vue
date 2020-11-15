@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Login</h1>
-    <p>Logged in as {{ currentUser.email }}</p>
+    <p>Logged in as {{ getCurrentUser }}</p>
     <form>
       <div class="form-group row">
         <label>Email address</label> 
@@ -30,6 +30,7 @@
 <script>
 import Firebase from "firebase";
 import { store } from '../store/index.js';
+import { mapGetters } from 'vuex';
 
 Firebase.auth().onAuthStateChanged(function(user){
   if(user) {
@@ -66,9 +67,12 @@ export default {
     }
   },
   computed: {
-    currentUser() {
-      return this.$store.getters.getCurrentUser
-    }
+    ...mapGetters([
+      'getCurrentUser'
+    ])
+    // currentUser() {
+    //   return this.$store.getters.getCurrentUser
+    // }
   }
 }
 </script>
