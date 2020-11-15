@@ -82,8 +82,8 @@ export default {
       basketEmptyText: 'Your basket is empty!',
       getMenuItems: {
         1: {
-          'name': "Margherita",
-          description: "A delicious tomato based pizza with mozerella topping",
+          name: "Margherita",
+          description: "A delicious tomato based pizza with mozzarella topping",
           options: [
             {
               size: '9',
@@ -97,7 +97,7 @@ export default {
         },
         2: {
           'name': "Pepproni",
-          description: "A delicious tomato based pizza with mozerella and pepproni topping",
+          description: "A delicious tomato based pizza with mozzarella and pepproni topping",
           options: [
             {
               size: '9',
@@ -111,7 +111,7 @@ export default {
         },
         3: {
           'name': "Chicken Supreme",
-          description: "A delicious tomato based pizza with mozerella and pepproni topping",
+          description: "A delicious tomato based pizza with mozzarella and pepproni topping",
           options: [
             {
               size: '9',
@@ -125,7 +125,7 @@ export default {
         },
         4 : {
           'name': "BBQ",
-          description: "A delicious tomato based pizza with mozerella and pepproni topping",
+          description: "A delicious tomato based pizza with mozzarella and pepproni topping",
           options: [
             {
               size: '9',
