@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <h1>Login</h1>
     <form>
       <div class="form-group row">
@@ -65,6 +65,6 @@ h2 {
   font-size: 1.2em;
 }
 button {
-  margin: 10px;
+  margin: 5px;
 }
 </style>
