@@ -25,7 +25,11 @@ const routes = [
   {
     path: '/admin',
     name: 'adminLink',
-    component: Admin
+    component: Admin,
+    beforeEnter: (to, from, next) => {
+      alert("This area is for authorized users only, please login to continue!");
+      next();
+    }
   },
   {
     path: '/about',
@@ -46,12 +50,34 @@ const routes = [
 ];
 
 const router = new Router({
+  routes,
+  base: '/',
   // Mode:
   // default mode is hash. 
   // Hash mode maskes it easy for SPAs to request the hashed page from the server before the vue library router takes over and switch the views
   mode: "history",
-  base: '/',
-  routes
+  // scroll behaviour saves the scroll position of the browser
+  // scrollBehavior(to, from, savedPosition) {
+    // position by setting x and y
+    // return { x: 0, y: 200 }
+
+    // position with the tag
+    // return { selector: h1 }
+
+    // position with last savedPosition
+    // if (savedPosition) {
+    //   return savedPosition;
+    // } else {
+    //   return { x: 0, y: 0 };
+    // }
+
+    // position with last hash
+    // if(to.hash){
+    //   return {
+    //     selector: to.hash
+    //   }
+    // }
+  // }
 });
 
 
