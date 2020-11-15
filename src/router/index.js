@@ -54,4 +54,23 @@ const router = new Router({
   routes
 });
 
+
+// Global Guards
+// router.beforeEach((to, from, next) => {
+//   if (to.path === "/menu") {
+//     console.log(to);
+//     console.log(from);
+//     next(); // next allows the component to load
+//   } else {
+//     next(false);
+//   }
+// });
+
+// router.afterEach((to, from) => {
+//   alert('after each');
+//   console.log(to);
+//   console.log(from);
+//   // next is not needed in this fuction as it triggers after the component has already loaded
+// });
+
 export default router;

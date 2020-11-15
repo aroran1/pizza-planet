@@ -78,6 +78,16 @@ export default {
   components: {
     ppNewPizza: NewPizza,
     ppLogin: Login
+  },
+  data() {
+    return {
+      name: 'Nidhi'
+    }
+  },
+  // component guard
+  beforeRouteEnter: (to, from, next) => {
+    alert('Hi' + this.name);
+    next();
   }
 }
 </script>
