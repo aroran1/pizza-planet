@@ -15,3 +15,4 @@ const firebaseApp = Firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.database();
 // Database menu folder reference created automaticaaly in firebase
 export const dbMenuRef = db.ref('menu'); 
+export const dbOrdersRef = db.ref('orders'); 

@@ -28,12 +28,18 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import { dbMenuRef, dbOrdersRef } from "./database/firebaseConfig.js";
 
 export default {
   name: 'App',
   components: {
     ppHeader: Header,
     ppFooter: Footer
+  },
+  created() {
+    // once the app is loaded this will dispatch the setMenuRef action which will bind the menuItems to the app state
+    this.$store.dispatch('setMenuRef', dbMenuRef);
+    this.$store.dispatch('setOrdersRef', dbOrdersRef)
   }
 }
 </script>

@@ -31,10 +31,9 @@
   <div class="row">
     <div class="col-sm-12">
       <h2>Current Orders: {{ getNumberOfOrders }}</h2>
-      <table class="table table-sm">
-        <thead class="thead-default thead-light">
+      <table class="table table-sm" v-for="orders in getOrders" :key="orders.key">
+        <thead class="thead-default thead-light"> 
           <tr>
-            <th>Order Info</th>
             <th>Item</th>
             <th>Size</th>
             <th>Quantity</th>
@@ -42,19 +41,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div class="order-number">
-                <strong><em>Order Number: 1</em></strong>
-                <button
-                  class="btn btn-sm btn-outline-danger"
-                >x</button>
-              </div>
-            </td>
-            <td>Marghrita</td>
-            <td>9"</td>
-            <td>1</td>
-            <td>9.95</td>
+          <div class="order-number">
+            <strong><em>Order Number: 1</em></strong>
+            <button
+              class="btn btn-sm btn-outline-danger"
+            >x</button>
+          </div>
+          <tr v-for="orderItems in orders" :key="orderItems.name">
+            <td>{{ orderItems.name }}</td>
+            <td>{{ orderItems.size }}</td>
+            <td>{{ orderItems.quantity }}</td>
+            <td>{{ orderItems.price}}</td>
           </tr>
         </tbody>
       </table>
@@ -83,7 +80,8 @@ export default {
   computed: {
     ...mapGetters([
       'getMenuItems',
-      'getNumberOfOrders'
+      'getNumberOfOrders',
+      'getOrders'
     ])
     // using mapGetters helpers are better way of using getters
     // menuItems() {
@@ -111,5 +109,10 @@ h1 {
 h2 {
   font-size: 1.2em;
 }
-
+.order-number {
+  background: #f5f7fa;
+}
+.btn-outline-danger {
+  margin: 10px;
+}
 </style>

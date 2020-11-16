@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { vuexfireMutations } from 'vuexfire'; 
 
 // Level 1 modularisation
 // import * as actions from './actions.js';
@@ -16,6 +17,7 @@ Vue.use(Vuex);
 
 // Level 2 modularisation
 export const store = new Vuex.Store({
+  mutations: { ...vuexfireMutations },
   modules: {
     menu,
     orders,
