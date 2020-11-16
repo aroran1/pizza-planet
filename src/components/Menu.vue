@@ -18,7 +18,7 @@
           <!-- <tr v-bind:for="option in item.options"> -->
           <tr v-for="option in item.options" :key="option['.key']">
             <td>{{ option.size }}</td>
-            <td>{{ option.price }}</td>
+            <td>{{ option.price | currency }}</td>
             <td>
               <button
                 class="btn btn-sm btn-outline-success"
@@ -60,11 +60,11 @@
                 >+</button>
               </td>
               <td>{{ item.name }} {{ item.size }}"</td>
-              <td>{{ item.price * item.quantity}}</td>
+              <td>{{ item.price * item.quantity | currency }}</td>
             </tr>
           </tbody>
         </table>
-        <p>Order Bill: </p>
+        <p>Total Bill: {{ total | currency }}</p>
         <button
           class="btn btn-success btn-block"
           type="button"
@@ -91,11 +91,20 @@ export default {
   computed: {
     ...mapGetters([
       'getMenuItems'
-    ])
+    ]),
     // menuItems() {
     //   // return this.$store.state.menuItems 
     //   return this.$store.getters.getMenuItems
     // }
+    total() {
+      let totalCost = 0;
+
+      this.basket.forEach(item => {
+        totalCost += item.price * item.quantity
+      })
+      
+      return totalCost;
+    }
   },
   methods: {
     addToBasket(item, option) {

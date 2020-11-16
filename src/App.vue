@@ -43,3 +43,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+header, footer {
+  background-color: #eceeef;
+  padding: 20px;
+  font-size: 1.2em;
+}
+.card {
+  background-color: #69AB64;
+  margin: 20px 0;
+  border-radius: 0 ;
+}
+</style>

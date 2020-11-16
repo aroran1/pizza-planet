@@ -1,14 +1,15 @@
 <template>
   <div v-if="getCurrentUser">
+    <p>Logged in as {{ getCurrentUser }}</p>
     <button
       type="button"
       class="btn btn-danger"
       @click.prevent="signOut"
     >Sign out</button>
+    <hr />
   </div>
   <div v-else>
-    <h1>Login</h1>
-    <p>Logged in as {{ getCurrentUser }}</p>
+    <p>Please login to continue.</p>
     <form>
       <div class="form-group row">
         <label>Email address</label> 
