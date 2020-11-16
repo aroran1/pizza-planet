@@ -11,12 +11,12 @@
           </tr>
         </thead>
         <!-- <tbody v-bind:for="item in getMenuItems"> -->
-        <tbody v-for="item in getMenuItems" :key="item.id">
+        <tbody v-for="item in getMenuItems" :key="item['.key']">
           <tr>
             <td><strong>{{ item.name }}</strong></td>
           </tr>
           <!-- <tr v-bind:for="option in item.options"> -->
-          <tr v-for="option in item.options" :key="option.size">
+          <tr v-for="option in item.options" :key="option['.key']">
             <td>{{ option.size }}</td>
             <td>{{ option.price }}</td>
             <td>
@@ -44,7 +44,7 @@
             </tr>
           </thead>
           <!-- <tbody v-bind:for="item in getMenuItems"> -->
-          <tbody v-for="item in basket" :key="item.name">
+          <tbody v-for="item in basket" :key="item['.key']">
             <tr>
               <td>
                 <button
@@ -72,7 +72,7 @@
         >Place Order</button>
       </div>
       <div v-else>
-        <p>{{ basketText }} <br />{{ this.$store.state.orders }}</p>
+        <p>{{ basketText }}</p>
       </div>
     </div>
   </div>

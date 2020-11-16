@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <div v-if="getCurrentUser">
+    <button
+      type="button"
+      class="btn btn-danger"
+      @click.prevent="signOut"
+    >Sign out</button>
+  </div>
+  <div v-else>
     <h1>Login</h1>
     <p>Logged in as {{ getCurrentUser }}</p>
     <form>
@@ -86,5 +93,8 @@ h2 {
 }
 button {
   margin: 5px;
+}
+form {
+  padding: 15px;
 }
 </style>
