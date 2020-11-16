@@ -1,3 +1,3 @@
 export const setUser = ({ commit }, user) => {
-  commit('userStatus', user.email);
+  commit('userStatus', user);
 }
