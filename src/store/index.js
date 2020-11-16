@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import * as actions from './actions.js';
+import * as getters from './getters.js';
+import * as mutations from './mutations.js';
+// import * as state from './state.js';
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  // initial state of the app
   state: {
     menuItems: {
       1: {
@@ -66,29 +70,8 @@ export const store = new Vuex.Store({
     },
     orders: [],
     currentUser: null
-  },
-  getters: {
-    getMenuItems: state => state.menuItems,
-    getNumberOfOrders: state => state.orders.length,
-    getCurrentUser: state => state.currentUser
-  },
-  mutations: {
-    addOrder: (state, orders) => state.orders.push(orders),
-    userStatus: (state, user) => {
-      if(user) {
-        state.currentUser = user.email
-      } else {
-        state.currentUser = null
-      }
-    }
-  },
-  actions: {
-    // setUser(context, user) {
-    //   context.commit('userStatus', user);
-    // }
-    // same as above, instead of calling commit from context, calling it directly
-    setUser({ commit }, user) {
-      commit('userStatus', user);
-    }
-  }
+  }, // initial state of the app
+  mutations, // to mutate state data
+  getters, // helper functions to get the state data from component files
+  actions // mainly used for async methods 
 })
