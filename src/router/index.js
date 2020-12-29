@@ -1,9 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "../components/Home.vue";
-import Menu from "../components/Menu.vue";
-import Admin from "../components/Admin.vue";
-import About from "../components/About.vue";
+// import Menu from "../components/Menu.vue";
+const Menu = (/* webpackChunkName: "menu" */) => import("../components/Menu.vue");
+// import Admin from "../components/Admin.vue";
+const Admin = () => import("../components/Admin.vue");
+// import About from "../components/About.vue";
+const About = () => import("../components/About.vue");
 import Contact from "../components/Contact.vue";
 import Delivery from "../components/Delivery.vue";
 import History from "../components/History.vue";
